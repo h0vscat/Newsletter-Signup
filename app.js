@@ -40,7 +40,7 @@ app.post("/", (req, res) => {
         if (error) {
             res.sendFile(__dirname + "/failure.html");
         } else {
-            res.sendFile(__dirname + "/succes.html");
+            res.sendFile(__dirname + "/success.html");
         }
     });
 });
