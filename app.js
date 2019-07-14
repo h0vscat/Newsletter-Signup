@@ -23,28 +23,30 @@ app.post("/", (req, res) => {
                 LNAME: lastName
             }
         }]
-    }
+    };
 
     let jsonData = JSON.stringify(data);
 
     let options = {
-        // url: "https://us3.api.mailchimp.com/3.0/lists/f8985ed941",
+        url: "https://us3.api.mailchimp.com/3.0/lists/f8985ed941",
         method: "POST",
         headers: {
             "Authorization": "Ren cc4d921c83823486324b618e0431edc3-us3"
         },
         body: jsonData
-    }
+    };
+
     request(options, (error, response, body) => {
         if (error) {
             res.sendFile(__dirname + "/failure.html");
         } else {
             res.sendFile(__dirname + "/succes.html");
         }
-    })
-})
+    });
+});
 
 app.post("/failure", (req, res) => {
     res.redirect("/");
-})
+});
+
 app.listen(process.env.PORT || "3000", _ => console.log("server 3000 running"));
